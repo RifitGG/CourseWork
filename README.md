@@ -41,6 +41,21 @@ GROUP BY course_id;
 ```
 ---
 ```sql
+--  Начало новой сессии
+INSERT INTO sessions (user_id, lesson_id)
+VALUES (1, 3);
+-- Проверить активные (незавершённые) сессии для пользователя 1
+SELECT *
+FROM sessions
+WHERE user_id = 1
+  AND completed_at IS NULL;
+
+-- Отметить окончание сессии, например, последней вставленной, если требуется 
+UPDATE sessions
+SET completed_at = NOW()
+WHERE id = LAST_INSERT_ID();
+
+
 -- 5) Текущие активные сессии Alice
 SELECT * FROM sessions
 WHERE user_id = 1 AND completed_at IS NULL;
