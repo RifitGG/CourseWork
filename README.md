@@ -4,6 +4,15 @@
 ## ER-Диаграмма
 ![img](https://github.com/RifitGG/CourseWork/blob/main/er.png)
  ## Типовые запросы:
+ ```sql
+-- Alice пополняет баланс и покупает курс
+UPDATE users SET balance = 600.00 WHERE id = 1;
+CALL sp_enroll_and_pay(1,1);
+
+-- Alice начинает и завершает первый урок
+INSERT INTO sessions (user_id, lesson_id, completed_at)
+VALUES (1,1, NOW());
+```
 ```sql
 -- 1) Список всех курсов с именем преподавателя
 SELECT c.id, c.title, t.name
@@ -34,16 +43,6 @@ GROUP BY course_id;
 -- 5) Текущие активные сессии Alice
 SELECT * FROM sessions
 WHERE user_id = 1 AND completed_at IS NULL;
-```
----
-```sql
--- Alice пополняет баланс и покупает курс
-UPDATE users SET balance = 600.00 WHERE id = 1;
-CALL sp_enroll_and_pay(1,1);
-
--- Alice начинает и завершает первый урок
-INSERT INTO sessions (user_id, lesson_id, completed_at)
-VALUES (1,1, NOW());
 ```
 ---
 ## Вызов view
