@@ -13,6 +13,7 @@ CALL sp_enroll_and_pay(1,1);
 INSERT INTO sessions (user_id, lesson_id, completed_at)
 VALUES (1,1, NOW());
 ```
+---
 ```sql
 -- 1) Список всех курсов с именем преподавателя
 SELECT c.id, c.title, t.name
