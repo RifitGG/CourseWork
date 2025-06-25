@@ -1,7 +1,7 @@
 # CourseWork
 > ⚠️
 > ## Для разворачивания БД и тестовых данных необходимо скачать и инициализировать файл dump.sql
-> ## Типовые запросы:
+ ## Типовые запросы:
 ```sql
 -- 1) Список всех курсов с именем преподавателя
 SELECT c.id, c.title, t.name
@@ -33,3 +33,4 @@ GROUP BY course_id;
 SELECT * FROM sessions
 WHERE user_id = 1 AND completed_at IS NULL;
 ```
+---
